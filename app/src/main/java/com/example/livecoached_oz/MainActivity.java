@@ -5,10 +5,16 @@ import android.os.Vibrator;
 import android.support.wearable.activity.WearableActivity;
 import android.widget.TextView;
 
-public class MainActivity extends WearableActivity {
+import com.example.livecoached_oz.Communication.Server;
+import com.example.livecoached_oz.Interfaces.Decoder;
+
+public class MainActivity extends WearableActivity implements Decoder {
 
     // UI Components
     private TextView mTextView;
+
+    // communication
+    private Server server;
 
     // feedback
     private Vibrator vibrator;
@@ -27,8 +33,26 @@ public class MainActivity extends WearableActivity {
         setContentView(R.layout.activity_main);
 
         mTextView = (TextView) findViewById(R.id.text);
+        server = new Server(this);
 
         // Enables Always-on
         setAmbientEnabled();
+    }
+
+    @Override
+    public String decodeMessage(String rep) {
+        showOnScreen(rep);
+        // vibrate if says so
+        return "roger";
+    }
+
+    public void showOnScreen(String order){
+        final String msg = order;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mTextView.setText(msg);
+            }
+        });
     }
 }

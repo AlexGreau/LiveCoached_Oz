@@ -26,15 +26,6 @@ public class Server {
         serverSocketThread.start();
         System.out.println("Server launched");
     }
-
-    public void setRunning(boolean bool) {
-        running = bool;
-        if (!bool) {
-            this.serverSocketThread.interrupt();
-            this.serverSocketThread = null;
-        }
-    }
-
     public void setDecoder(Decoder decoder){
         this.decoder = decoder;
     }
