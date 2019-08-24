@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'android-Q'
+    compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.livecoached_oz"
-        minSdkVersion 'Q'
-        targetSdkVersion 'Q'
+        applicationId "com.example.livecoached"
+        minSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
