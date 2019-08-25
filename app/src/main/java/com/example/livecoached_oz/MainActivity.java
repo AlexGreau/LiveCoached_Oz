@@ -37,7 +37,7 @@ public class MainActivity extends WearableActivity implements Decoder {
 
     private long[] pattern;
     private int[] amplitudes;
-    private int indexInPatternToRepeat = 0;
+    private int indexInPatternToRepeat = -1;
 
     // values
     private int currentDirection;
@@ -155,37 +155,31 @@ public class MainActivity extends WearableActivity implements Decoder {
                 // CP
                 pattern = new long[]{shortSig, 2 * delay / 3, shortSig, 2 * delay / 3, shortSig, pause};
                 amplitudes = new int[]{weakAmpli, 0, midAmpli, 0, highAmpli, 0};
-                indexInPatternToRepeat = -1;
                 return;
             case -1:
                 // left
                 pattern = new long[]{longSig, delay, shortSig, delay, shortSig, pause};
                 amplitudes = new int[]{midAmpli, 0, highAmpli, 0, highAmpli, 0};
-                indexInPatternToRepeat = 0;
                 return;
             case 1:
                 // right
                 pattern = new long[]{shortSig, delay, shortSig, delay, longSig, pause};
                 amplitudes = new int[]{midAmpli, 0, highAmpli, 0, highAmpli, 0};
-                indexInPatternToRepeat = 0;
                 return;
             case 2:
                 // end
                 pattern = new long[]{longSig, delay, longSig, delay, longSig, pause};
                 amplitudes = new int[]{midAmpli, 0, midAmpli, 0, midAmpli, 0};
-                indexInPatternToRepeat = -1;
                 return;
             case 3:
                 // straight
                 pattern = new long[]{longSig, pause};
                 amplitudes = new int[]{midAmpli, 0};
-                indexInPatternToRepeat = 0;
                 return;
             default:
                 //standard
                 pattern = new long[]{shortSig, pause};
                 amplitudes = new int[]{midAmpli, 0};
-                indexInPatternToRepeat = -1;
                 return;
         }
     }
