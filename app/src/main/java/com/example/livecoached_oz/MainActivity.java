@@ -137,7 +137,6 @@ public class MainActivity extends WearableActivity implements Decoder {
     public void vibrate(int pat) {
         setVibroValues(pat);
         vibrator.vibrate(VibrationEffect.createWaveform(pattern, amplitudes, indexInPatternToRepeat));
-
     }
 
     private void setVibroValues(int style) {
@@ -146,15 +145,14 @@ public class MainActivity extends WearableActivity implements Decoder {
         long delay = 300;
         long pause = 2000;
 
-        int weakAmpli = 70;
         int midAmpli = 150;
         int highAmpli = 250;
 
         switch (style) {
             case 0:
                 // CP
-                pattern = new long[]{shortSig, 2 * delay / 3, shortSig, 2 * delay / 3, shortSig, pause};
-                amplitudes = new int[]{weakAmpli, 0, midAmpli, 0, highAmpli, 0};
+                pattern = new long[]{shortSig, delay, shortSig, delay, shortSig, pause};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
             case -1:
                 // left
@@ -173,8 +171,13 @@ public class MainActivity extends WearableActivity implements Decoder {
                 return;
             case 3:
                 // straight
-                pattern = new long[]{longSig, pause};
-                amplitudes = new int[]{midAmpli, 0};
+                pattern = new long[]{longSig};
+                amplitudes = new int[]{midAmpli};
+                return;
+            case 100:
+                // start
+                pattern = new long[]{shortSig, delay, longSig, delay, shortSig};
+                amplitudes = new int[]{midAmpli, 0, highAmpli, 0, highAmpli};
                 return;
             default:
                 //standard
@@ -184,7 +187,7 @@ public class MainActivity extends WearableActivity implements Decoder {
         }
     }
 
-    private void initHapticExplanationText(){
+    private void initHapticExplanationText() {
         String explanationText = " - : Straight \n - . . : Left \n . . - : Right \n ... : Checkpoint \n - - - : Finish line";
         hapticText.setText(explanationText);
     }
