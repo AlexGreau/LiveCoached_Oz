@@ -68,7 +68,7 @@ public class MainActivity extends WearableActivity implements Decoder {
         } else {
             decodeInteraction(parts[0]);
             decodeDirection(parts[1]);
-            if (!visualIsForbidden) {
+            if (visualIsForbidden) {
                 showHapticVocab();
             } else {
                 showOnScreen(parts[1]);
@@ -121,14 +121,14 @@ public class MainActivity extends WearableActivity implements Decoder {
 
     private void decodeInteraction(String interactionString) {
         int interaction = Integer.parseInt(interactionString);
-        if (interaction == hapticCode) {
+        if (interaction == bothCode) {
+            vibroIsForbidden = false;
+            visualIsForbidden = false;
+        } else if (interaction == hapticCode) {
             vibroIsForbidden = false;
             visualIsForbidden = true;
         } else if (interaction == visualCode) {
             vibroIsForbidden = true;
-            visualIsForbidden = false;
-        } else if (interaction == bothCode) {
-            vibroIsForbidden = false;
             visualIsForbidden = false;
         }
         return;
