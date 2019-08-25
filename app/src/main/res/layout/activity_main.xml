@@ -15,10 +15,17 @@
         app:boxedEdges="all">
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
+            android:text="Hello ! Be ready" />
+
+        <TextView
+            android:id="@+id/hapticExplanation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hapticExplanation"
+            android:visibility="gone"/>
 
     </FrameLayout>
 </androidx.wear.widget.BoxInsetLayout>
