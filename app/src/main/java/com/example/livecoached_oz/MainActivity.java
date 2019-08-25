@@ -69,9 +69,9 @@ public class MainActivity extends WearableActivity implements Decoder {
             decodeInteraction(parts[0]);
             decodeDirection(parts[1]);
             if (!visualIsForbidden) {
-                showOnScreen(rep);
-            } else {
                 showHapticVocab();
+            } else {
+                showOnScreen(parts[1]);
             }
 
             if (!vibroIsForbidden) {
