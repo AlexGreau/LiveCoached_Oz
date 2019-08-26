@@ -14,6 +14,11 @@ public class MainActivity extends WearableActivity implements Decoder {
     private final String goRightOrder = "Right";
     private final String goLeftOrder = "Left";
     private final String goStraightOrder = "Straight";
+    private final String goUpLeftOrder = "Up Left";
+    private final String goUpRightOrder = "Up Right";
+    private final String goDownLeftOrder = "Down Left";
+    private final String goDownRightOrder= "Down Right";
+    private final String goDownOrder = "Down";
     private final String finishOrder = "Finish";
     private final String startOrder = "Start";
     private final String checkpointReachedOrder = "CP";
