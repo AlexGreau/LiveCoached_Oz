@@ -129,7 +129,7 @@ public class MainActivity extends WearableActivity implements Decoder {
             @Override
             public void run() {
                 orderText.setVisibility(View.GONE);
-                hapticText.setVisibility(View.VISIBLE);
+               // hapticText.setVisibility(View.VISIBLE);
             }
         });
     }
