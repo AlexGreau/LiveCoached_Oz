@@ -21,7 +21,7 @@ public class MainActivity extends WearableActivity implements Decoder {
     private final String goDownOrder = "Down";
     private final String finishOrder = "Finish";
     private final String startOrder = "Start";
-    private final String checkpointReachedOrder = "CP";
+    private final String checkpointReachedOrder = "CheckPoint";
     private final int hapticCode = -1;
     private final int visualCode = 1;
     private final int bothCode = 0;
@@ -171,73 +171,62 @@ public class MainActivity extends WearableActivity implements Decoder {
         int highAmpli = 250;
 
         switch (style) {
-            case 0:
-                // CP
-                pattern = new long[]{shortSig, delay, shortSig, delay, shortSig, pause};
-                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0};
-                return;
             case 1:
                 // up Left
                 pattern = new long[]{longSig, combinaisonDelay, longSig, delay, shortSig, delay, shortSig, pause};
-                amplitudes = new int[]{midAmpli, 0, midAmpli, 0, midAmpli, 0, midAmpli, 0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
 
             case 2:
                 // straight
                 pattern = new long[]{longSig};
-                amplitudes = new int[]{midAmpli};
+                amplitudes = new int[]{highAmpli};
                 return;
 
             case 3:
                 // up right
                 pattern = new long[]{longSig, combinaisonDelay, shortSig, delay, shortSig, delay, longSig, pause};
-                amplitudes = new int[]{midAmpli, 0, midAmpli, 0, highAmpli, 0, highAmpli, 0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
 
             case 4:
                 // left
                 pattern = new long[]{longSig, delay, shortSig, delay, shortSig, pause};
-                amplitudes = new int[]{midAmpli, 0, highAmpli, 0, highAmpli, 0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
             case 5:
                 // right
                 pattern = new long[]{shortSig, delay, shortSig, delay, longSig, pause};
-                amplitudes = new int[]{midAmpli, 0, highAmpli, 0, highAmpli, 0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
             case 6:
                 // down left
                 pattern = new long[]{shortSig, combinaisonDelay, longSig, delay, shortSig, delay, shortSig, pause};
-                amplitudes = new int[]{midAmpli, 0, midAmpli, 0, highAmpli, 0, highAmpli, 0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
 
             case 7:
                 // down
                 pattern = new long[]{shortSig};
-                amplitudes = new int[]{midAmpli};
+                amplitudes = new int[]{highAmpli};
                 return;
 
             case 8:
                 // down right
                 pattern = new long[]{shortSig, combinaisonDelay, shortSig, delay, shortSig, delay, longSig, pause};
-                amplitudes = new int[]{midAmpli, 0, midAmpli, 0, highAmpli, 0, highAmpli, 0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
 
             case -100:
                 // end
                 pattern = new long[]{longSig, delay, longSig, delay, longSig, pause};
-                amplitudes = new int[]{midAmpli, 0, midAmpli, 0, midAmpli, 0};
-                return;
-
-            case 100:
-                // start
-                pattern = new long[]{delay};
-                amplitudes = new int[]{0};
+                amplitudes = new int[]{highAmpli, 0, highAmpli, 0, highAmpli, 0};
                 return;
 
             default:
                 //standard
-                pattern = new long[]{shortSig, pause,};
-                amplitudes = new int[]{midAmpli, 0};
+                pattern = new long[]{delay};
+                amplitudes = new int[]{0};
                 return;
         }
     }
