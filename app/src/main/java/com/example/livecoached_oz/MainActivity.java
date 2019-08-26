@@ -83,6 +83,12 @@ public class MainActivity extends WearableActivity implements Decoder {
                 vibrate(currentDirection);
             }
         }
+        if (parts[1].equals(startOrder)) {
+            return "starting";
+        }
+        if (parts[1].equals(checkpointReachedOrder)) {
+            return "cp";
+        }
         return "roger";
     }
 
@@ -129,7 +135,7 @@ public class MainActivity extends WearableActivity implements Decoder {
             @Override
             public void run() {
                 orderText.setVisibility(View.GONE);
-               // hapticText.setVisibility(View.VISIBLE);
+                // hapticText.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -172,7 +178,7 @@ public class MainActivity extends WearableActivity implements Decoder {
                 return;
             case 1:
                 // up Left
-                pattern = new long[]{longSig,combinaisonDelay, longSig, delay, shortSig, delay, shortSig, pause};
+                pattern = new long[]{longSig, combinaisonDelay, longSig, delay, shortSig, delay, shortSig, pause};
                 amplitudes = new int[]{midAmpli, 0, midAmpli, 0, midAmpli, 0, midAmpli, 0};
                 return;
 
