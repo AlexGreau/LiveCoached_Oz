@@ -165,7 +165,7 @@ public class MainActivity extends WearableActivity implements Decoder {
         long longSig = 450;
         long delay = 300;
         long pause = 2000;
-        long combinaisonDelay = 500;
+        long combinaisonDelay = 600;
 
         int midAmpli = 150;
         int highAmpli = 250;
