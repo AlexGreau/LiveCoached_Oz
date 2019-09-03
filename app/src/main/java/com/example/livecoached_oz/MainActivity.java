@@ -74,7 +74,7 @@ public class MainActivity extends WearableActivity implements Decoder {
             decodeInteraction(parts[0]);
             decodeDirection(parts[1]);
             if (visualIsForbidden) {
-                showHapticVocab();
+                showHapticScreen();
             } else {
                 showOnScreen(parts[1]);
             }
@@ -130,7 +130,7 @@ public class MainActivity extends WearableActivity implements Decoder {
         });
     }
 
-    public void showHapticVocab() {
+    public void showHapticScreen() {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
